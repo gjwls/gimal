@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 public class Main {
@@ -9,7 +6,7 @@ public class Main {
         int[][] ex = new int [100][2];
         for (int i = 0; i < 100; i++) {
             ex[i][0] = i;
-            ex[i][1] = i * 4 + 10 + (int)r.nextGaussian();
+            ex[i][1] = i * 4 + 10 + 2 * (int)r.nextGaussian();
         }
         return ex;
     }
