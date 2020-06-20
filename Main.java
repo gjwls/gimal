@@ -4,7 +4,16 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Main {
-    static int[][] yeje = {{1, 14}, {2, 18},{3, 23},{4, 25},{5, 30},{6, 34},{7, 38},{8, 41},{9, 46},{10, 50}};
+    public static int[][] randomgap(){
+        Random r = new Random();
+        int[][] ex = new int [100][2];
+        for (int i = 0; i < 100; i++) {
+            ex[i][0] = i;
+            ex[i][1] = i * 4 + 10 + (int)r.nextGaussian();
+        }
+        return ex;
+    }
+    static int[][] yeje = randomgap();
     // fx = 4x + 10;
     public static double fx(int x[]) {
         int gap_return = 0;
@@ -20,7 +29,7 @@ public class Main {
         int[][] arr = new int[4][2];
         for(int i=0; i<4; i++) {
             for (int j = 0; j < 2; j++) {
-                arr[i][j] = r.nextInt(31+1);
+                arr[i][j] = r.nextInt(32);
                 System.out.printf("%d ", arr[i][j]);
             }
             if(i < 3) System.out.print(", ");
@@ -88,7 +97,7 @@ public class Main {
         Random r = new Random();
         int a = Integer.parseInt(x, 2);
         for(int i=0; i<x.length(); i++) {
-            double p = (double)1/ (double)32;
+            double p = (double)1/ (double)16;
             if(r.nextDouble() < p) {
                 a = 1 << i ^ a;
             }
