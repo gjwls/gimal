@@ -1,12 +1,13 @@
 import java.util.Random;
 
 public class Main {
+
     public static int[][] randomgap(){
         Random r = new Random();
-        int[][] ex = new int [100][2];
-        for (int i = 0; i < 100; i++) {
+        int[][] ex = new int [20][2];
+        for (int i = 0; i < 20; i++) {
             ex[i][0] = i;
-            ex[i][1] = i * 4 + 10 + 2 * (int)r.nextGaussian();
+            ex[i][1] = i * 4 + 10 + (int)(2 * r.nextGaussian());
         }
         return ex;
     }
@@ -136,5 +137,11 @@ public class Main {
             System.out.println(max_fx);
         }
         System.out.println("f(x) = " + answer[0] + "x +" + answer[1]);
+        for (int i = 0; i < yeje.length; i++) {
+            for (int j = 0; j < yeje[0].length ; j++) {
+                System.out.printf("%d ", yeje[i][j]);
+            }
+            System.out.println("");
+        }
     }
 }
