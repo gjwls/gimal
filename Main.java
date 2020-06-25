@@ -7,7 +7,7 @@ public class Main {
         int[][] ex = new int [20][2];
         for (int i = 0; i < 20; i++) {
             ex[i][0] = i;
-            ex[i][1] = i * 4 + 10 + (int)(2 * r.nextGaussian());
+            ex[i][1] = i * 2000 + (int)(10 * r.nextGaussian());
         }
         return ex;
     }
@@ -27,7 +27,7 @@ public class Main {
         int[][] arr = new int[4][2];
         for(int i=0; i<4; i++) {
             for (int j = 0; j < 2; j++) {
-                arr[i][j] = r.nextInt(32);
+                arr[i][j] = r.nextInt(3000);
                 System.out.printf("%d ", arr[i][j]);
             }
             if(i < 3) System.out.print(", ");
@@ -83,8 +83,8 @@ public class Main {
                 String bit1 = int2String(Integer.toBinaryString(x[j][i]));
                 String bit2 = int2String(Integer.toBinaryString(x[j+1][i]));
 
-                arr[j][i] = bit1.substring(0, 2) + bit2.substring(2, 5);
-                arr[j+1][i] = bit2.substring(0, 2) + bit1.substring(2, 5);
+                arr[j][i] = bit1.substring(0, bit1.length() / 2) + bit2.substring(bit1.length() / 2);
+                arr[j+1][i] = bit2.substring(0, bit1.length() / 2) + bit1.substring(bit1.length() / 2);
             }
         }
 
@@ -117,7 +117,7 @@ public class Main {
         int[][] x = init();
         double max_fx = 0;
         int[] answer = new int [2];
-        for(int i=0; i<10000; i++) {
+        for(int i=0; i<100000; i++) {
             int[][] sx = selection(x);
             String[][] cx = crossOver(sx);
             int[][] mx = mutation(cx);
@@ -136,12 +136,13 @@ public class Main {
             System.out.println(answer[0] + " " + answer[1]);
             System.out.println(max_fx);
         }
-        System.out.println("f(x) = " + answer[0] + "x +" + answer[1]);
+
         for (int i = 0; i < yeje.length; i++) {
             for (int j = 0; j < yeje[0].length ; j++) {
                 System.out.printf("%d ", yeje[i][j]);
             }
             System.out.println("");
         }
+        System.out.println("f(x) = " + answer[0] + "x +" + answer[1]);
     }
 }
