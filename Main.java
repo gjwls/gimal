@@ -6,8 +6,9 @@ public class Main {
         Random r = new Random();
         int[][] ex = new int [20][2];
         for (int i = 0; i < 20; i++) {
-            ex[i][0] = i;
-            ex[i][1] = i * 2000 + (int)(10 * r.nextGaussian());
+            int t = r.nextInt(1000000);
+            ex[i][0] = t;
+            ex[i][1] = t * 2000 + (int)(100 * r.nextGaussian());
         }
         return ex;
     }
@@ -83,8 +84,8 @@ public class Main {
                 String bit1 = int2String(Integer.toBinaryString(x[j][i]));
                 String bit2 = int2String(Integer.toBinaryString(x[j+1][i]));
 
-                arr[j][i] = bit1.substring(0, bit1.length() / 2) + bit2.substring(bit1.length() / 2);
-                arr[j+1][i] = bit2.substring(0, bit1.length() / 2) + bit1.substring(bit1.length() / 2);
+                arr[j][i] = bit1.substring(0, bit1.length() / 3) + bit2.substring(bit1.length() / 3);
+                arr[j+1][i] = bit2.substring(0, bit1.length() / 3) + bit1.substring(bit1.length() / 3);
             }
         }
 
@@ -95,7 +96,7 @@ public class Main {
         Random r = new Random();
         int a = Integer.parseInt(x, 2);
         for(int i=0; i<x.length(); i++) {
-            double p = (double)1/ (double)16;
+            double p = (double)1/ (double)32;
             if(r.nextDouble() < p) {
                 a = 1 << i ^ a;
             }
